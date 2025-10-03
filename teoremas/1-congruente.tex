@@ -1,0 +1,66 @@
+\section*{TEOREMA 1}
+Sejam $a,b,m \in \mathbb{Z}$, com $m > 0$. $a$ é congruente a $b$ módulo $m$ se, e somente se $a \bmod m = b \bmod m$.
+\[
+     a \equiv b \pmod m \iff a \bmod m = b \bmod m \text{.}
+\]
+\subsection*{Prova ($\implies$)}
+Suponha $a, b, m \in \mathbb{Z}$ tal que $a \equiv b \pmod m$.\\
+Pelas definições 2 e 1, respectivamente, temos que:
+\begin{flalign*}
+      & m \mid a -b                          \\
+      & mk = a-b                             \\
+      & a = b + mk \quad \text{\textbf{(I)}}
+\end{flalign*}
+Pela definição do resto, ao dividir $b$ por $m$, temos:
+\[
+     b = q_b \cdot m + r_b \quad \text{\textbf{(II)}}
+\]
+Onde $q_b \in \mathbb{Z}$ e $r_b = b \bmod m$, com $0 \leq r_b < m$.\\
+Substituindo \textbf{(II)} em \textbf{(I)}:
+\begin{flalign*}
+      & a = (q_b \cdot m + r_b) + mk \\
+      & a = mq_b + mk + r_b          \\
+      & a = m\cdot(q_b + k) + r_b
+\end{flalign*}
+Tome $q_a = q_b + k$. Como $q_a \in \mathbb{Z}$ e $0 \leq r_b < m$, podemos dizer que $r_b$ é o resto da divisão de $a$ por $m$, isto é, $a \bmod m = r_b$.\\
+Como $r_b = b \bmod m$, temos que:
+\[
+     a \bmod m = b \bmod m \text{.}
+\]
+\subsection*{Prova ($\impliedby$)}
+Suponha $a, b, m \in \mathbb{Z}$ tal que $a \bmod m = b \bmod m$.
+Seja $r$ o valor comum do resto, de forma que:
+
+\[
+     r = a\bmod m = b \bmod m
+\]
+
+Pela definição do resto, podemos escrever $a$ e $b$ como:
+\begin{flalign*}
+      & a = q_a \cdot m + r \\
+      & b = q_b \cdot m + r
+\end{flalign*}
+
+Onde $q_a, q_b \in \mathbb{Z}$ e $0 \leq r < m$.
+Dessa forma, a diferença $a - b$ fica desta forma:
+\begin{flalign*}
+      & a - b = (q_a \cdot m + r) - (q_b \cdot m + r) \\
+      & a - b = q_a \cdot m + r - q_b \cdot m - r     \\
+      & a - b = m \cdot (q_a-q_b)
+\end{flalign*}
+
+Seja $k = q_a-q_b$. Como $q_a \in \mathbb{Z}$ e $q_b \in \mathbb{Z}$ temos que $k \in \mathbb{Z}$. Portanto:
+
+\[
+     a-b = mk
+\]
+
+Pela definição 1 e 2, respectivamente, temos que:
+\begin{flalign*}
+      & m \mid a-b         \\
+      & a \equiv b \pmod m
+\end{flalign*}
+
+\begin{flalign*}
+      &  & \blacksquare
+\end{flalign*}

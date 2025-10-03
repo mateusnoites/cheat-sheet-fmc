@@ -1,0 +1,39 @@
+\section*{DEFINIÇÃO 3 - Máximo Divisor Comum}
+Sejam $a, b \in \mathbb{Z}$ com $a, b \neq 0$. O MDC de $a$ e $b$, denotado por $mdc(a, b)$ é o único inteiro positivo $d$ que satisfaz as seguintes condições:
+\begin{enumerate}
+    \item $d \mid a$
+    \item $d \mid b$
+    \item $\forall c \in \mathbb{Z} [((c \mid a) \land (c \mid b)) \implies c \mid d]$
+\end{enumerate}
+
+Em outros termos, $d$ é o maior número inteiro positivo que divide $a$ e $b$ ao mesmo tempo.
+
+\subsection*{Exemplos}
+
+\textbf{1.} Calcular o $mdc(12, 18)$.
+\begin{align*}
+     & \text{Divisores de 12: } \{1,2,3,4,6,12\} \\
+     & \text{Divisores de 18: } \{1,2,3,6,9,18\} \\
+     & \text{Divisores comuns: } \{1,2,3,6\}     \\
+     & \textbf{Máximo Divisor Comum (MDC): } 6
+\end{align*}
+\vspace{-10pt}
+
+\subsection*{Algoritmo de Euclides}
+O algoritmo de Euclides é um método simples para encontrar o MDC entre dois números inteiros diferentes de zero. Ele é um derivado da divisão euclidiana:
+\[
+    D = dq + r\text{.}
+\]
+Com $\mathbf{D}$ sendo o \textbf{dividendo}, $\mathbf{d}$ o \textbf{divisor}, $\mathbf{q}$ o \textbf{quociente} e $\mathbf{r}$ o \textbf{resto} ($0 \leq r < |d|$).\\\\
+Se queremos calcular $mdc(a,b)$, podemos assumir $D_1 = \max(a,b)$ como o dividendo inicial e $d_1 = \min(a,b)$ como o divisor inicial.\\\\
+O algoritmo procede em etapas sucessivas, onde o resto de cada divisão se torna o novo divisor e o divisor anterior se torna o novo dividendo, até que $r_i = 0$ (onde $i$ é o número de iterações). O último resto \textbf{não nulo} é o $mdc(a,b)$.
+
+\subsection*{Exemplos}
+\textbf{2.} Calcular o $mdc(270, 192)$.
+\begin{align}
+     & 270 = 192 \cdot 1 + 78 \\
+     & 192 = 78 \cdot 2 + 36  \\
+     & 78 = 36 \cdot 2 + 6    \\
+     & 36 = 6 \cdot 6 + 0
+\end{align}
+Portanto, o $\mathbf{mdc(270,192)}$ é igual ao último resto não nulo, ou seja, $\mathbf{6}$.

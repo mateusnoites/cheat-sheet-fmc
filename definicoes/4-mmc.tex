@@ -1,0 +1,68 @@
+\section*{DEFINIÇÃO 4 - Mínimo Múltiplo Comum}
+Sejam $a, b \in \mathbb{Z}$. O $mmc(a,b)$ é o menor número inteiro positivo que é múltiplo de $a$ e $b$ simultaneamente.
+
+\subsection*{Exemplos}
+\textbf{1.} Calcular o $mmc(4,6)$.
+\begin{align*}
+    \textbf{Múltiplos de 4: } \{4,8,\mathbf{12},16,20,24,...\}  \\
+    \textbf{Múltiplos de 6: } \{6,\mathbf{12},18,24,30,36,...\} \\
+\end{align*}
+O menor dos múltiplos comuns é $12$, portanto $mmc(4,6) = 12$.\\
+\vspace{-10pt}\\
+
+\subsection*{Métodos para calcular o MMC}
+É possível conectar os conceitos de MMC e MDC com uma fórmula relacionada à Matemática Discreta:
+
+\[
+    mmc(a,b) = \frac{|a \cdot b|}{mdc(a,b)}
+\]
+\\
+Este é o método que apresenta maior eficiência computacional para calcular o MMC entre dois números, mas também existe o método da fatoração prima (mais útil para calcular o MMC entre três ou mais números):
+
+\begin{enumerate}
+    \item \textbf{Fatore} todos os números em seus fatores primos;
+    \item O \textbf{MMC} é o produto de todos os fatores primos distintos, cada um elevado à maior potência em que ele aparece em qualquer uma das fatorações.
+\end{enumerate}
+
+\subsection*{Exemplos}
+\textbf{2.} Calcular o $mmc(12,18)$ usando o primeiro método.
+
+\begin{enumerate}
+    \item Calcular o \textbf{mdc(12,18)}:\\
+          Segundo o método apresentado na \textbf{definição 3}:
+          \begin{align}
+              18 & = 12 \cdot 1 + 6 \tag{1} \\
+              12 & = 6 \cdot 2 + 0 \tag{2}
+          \end{align}
+          Portanto, $mdc(12,18) = \mathbf{6}$.
+    \item Substituir na fórmula:\\
+          \begin{align*}
+               & mmc(12,18) = \frac{|12 \cdot 18|}{6} \\
+              \\
+               & mmc(12,18) = \frac{216}{6}           \\
+              \\
+               & mmc(12,18) = 36
+          \end{align*}
+\end{enumerate}
+\textbf{3.} Calcular o $mmc(12,18)$ usando o segundo método.
+
+\begin{enumerate}
+    \item Fatore 12 e 18 em seus respectivos fatores primos:
+          \begin{align*}
+               & 12 = 2^2 \cdot 3^1 \\
+               & 18 = 2^1 \cdot 3^2
+          \end{align*}
+    \item Fatores e maiores potências:
+          \begin{itemize}
+              \item Fator 2: $2^2$
+              \item Fator 3: $3^2$
+          \end{itemize}
+    \item Cálculo:
+          \begin{align*}
+               & mmc(12,18) = 2^2 \cdot 3^2 \\
+               & mmc(12,18) = 4 \cdot 9     \\
+               & mmc(12,18) = 36
+          \end{align*}
+\end{enumerate}
+
+O MMC entre $a$ e $b$ também pode ser interpretado como ``o primeiro número em que $a$ irá \textit{se encontrar} com $b$ quando ambos forem multiplicados por números naturais''.

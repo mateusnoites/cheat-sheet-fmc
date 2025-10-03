@@ -1,0 +1,42 @@
+\section*{DEFINIÇÃO 5 - Inverso Multiplicativo Modular}
+Este é um conceito essencial que se relaciona com o conceito de equação modular (\textbf{definição 6}).\\\\
+Sejam $a,m \in \mathbb{Z}$. O inverso multiplicativo modular de $a \bmod m$ é o inteiro $x$ tal que:
+\[
+    ax \equiv 1 \pmod m
+\]
+
+\subsection*{Condição de existência}
+O inverso multiplicativo modular de $a \bmod m$ existe se, e somente se $mdc(a,m) = 1$, isto é, se $a$ e $m$ forem \textbf{coprimos} ou \textbf{primos entre si}.\\
+
+\subsection*{Métodos para encontrar}
+É possível encontrar o inverso multiplicativo de $a \bmod m$ facilmente usando o \textbf{teorema 2 - teorema de Bézout}.
+\\\\Ao escrever o $mdc(a,m)$ como uma combinação linear de $a$ e $m$, o coeficiente de $a$ é o seu inverso multiplicativo.
+
+\subsection*{Exemplos}
+\textbf{1.} Encontrar o inverso multiplicativo de $3 \bmod 7$.
+
+\begin{align*}
+     & 3x \equiv 1 \pmod 7                                             \\
+    \\
+     & \text{Primeiro, precisamos calcular $mdc(3,7)$.}                \\
+    \\
+     & 7 = 3 \cdot 2 + 1                                               \\
+     & 3 = 1 \cdot 3 + 0                                               \\
+    \\
+     & \text{Como $mdc(3,7) = 1$, o inverso multiplicativo existe.}    \\
+     & \text{Agora, escrevemos 1 como uma combinação linear de 3 e 7.} \\
+    \\
+     & 1 = 1 \cdot 7 - 2 \cdot 3                                       \\
+    \\
+     & \text{O coeficiente de 3 é -2, então $x = -2$.}
+\end{align*}
+
+Como o inverso multiplicativo encontrado é um número negativo, podemos fazer a operação $x \bmod m$ para encontrar um inverso multiplicativo positivo (o que é uma boa prática).
+
+\[
+    -2 \bmod 7 = 5
+\]
+
+Logo, o inverso multiplicativo que procuramos é $\mathbf{5}$.\\
+
+\textbf{Obs:} Para encontrar um inverso multiplicativo positivo também é possível somar $m$ a $x$ até que $x$ seja maior ou igual a 1.

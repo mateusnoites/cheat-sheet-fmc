@@ -1,0 +1,23 @@
+\section*{TEOREMA 2 - Teorema de Bézout}
+Sejam $a, b \in \mathbb{Z}$ com $a,b > 0$. O $mdc(a,b)$ pode ser escrito como uma combinação linear de $a$ e $b$:
+\[
+    mdc(a,b) = sa + tb
+\]
+Com $s,t \in \mathbb{Z}$.\\
+O método para descobrir os valores de $s$ e $t$ é substituir consecutivamente os valores no algoritmo de Euclides.
+
+\subsection*{Exemplos}
+\textbf{1.} Expressar o mdc(270,192) como uma combinação linear de 270 e 192.
+\begin{align*}
+     & 270 = 192 \cdot 1 + 78                                                \\
+     & 192 = 78 \cdot 2 + 36                                                 \\
+     & 78 = 36 \cdot 2 + 6                                                   \\
+     & 36 = 6 \cdot 6 + 0                                                    \\
+    \\
+     & 6 = 78 - 2 \cdot 36                                                   \\
+     & 6 = 78 - 2 \cdot (192 - 2 \cdot 78)                                   \\
+     & 6 = (270 - 1 \cdot 192) - 2 \cdot (192 - 2 \cdot (270 - 1 \cdot 192)) \\
+     & 6 = 270 -  1 \cdot 192 - 2 \cdot 192 + 4 \cdot 270 - 4 \cdot 192      \\
+     & 6 = 5 \cdot 270 - 7 \cdot 192
+\end{align*}
+\par Portanto, $s = 5, t = -7$.
