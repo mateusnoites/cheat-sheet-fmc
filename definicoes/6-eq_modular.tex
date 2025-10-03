@@ -1,0 +1,55 @@
+\section*{DEFINIÇÃO 6 - Congruência Linear}
+Uma congruência linear é uma equação na forma $ax \equiv b \pmod m$. Uma congruência linear tem solução se, e somente se $mdc(a,m) \mid b$.\\
+\\
+Para resolver a congruência linear, é necessário seguir os seguintes passos:
+
+\begin{enumerate}
+
+    \item Encontrar o inverso multiplicativo de $a$ -- denotado por $\overline{a}$ ou $a^{-1}$ -- utilizando o método descrito na \textbf{definição 5}.
+          \[
+              a \overline{a} \equiv 1 \pmod m
+          \]
+
+    \item Multiplicar os dois lados da congruência por $\overline{a}$.
+          \[
+              \overline{a}ax \equiv \overline{a}b \pmod m
+          \]
+    \item Simplificando, o resultado fica:
+          \[
+              x \equiv \overline{a}b \pmod m
+          \]
+    \item Se $\overline{a}b < 1$ ou $\overline{a}b \geq m$, é necessário executar a operação $(\overline{a}b \bmod m)$ para encontrar a menor congruência natural.
+
+\end{enumerate}
+
+\subsection*{Exemplos}
+\textbf{1.} Calcular $17x \equiv 82 \pmod{11}$
+
+\begin{align*}
+     & 17\overline{a} \equiv 1 \pmod{11}                                \\
+    \\
+     & 17 = 11 \cdot 1 + 6                                              \\
+     & 11 = 6 \cdot 1 + 5                                               \\
+     & 6 = 5 \cdot 1 + 1                                                \\
+    \\
+     & 1 = 6 - 1 \cdot 5                                                \\
+     & 1 = 6 - 1 \cdot (11 - 1 \cdot 6)                                 \\
+     & 1 = (17 - 1 \cdot 11) - 1 \cdot (11 - 1 \cdot (17 - 1 \cdot 11)) \\
+     & 1 = 17 - 1 \cdot 11 - 1 \cdot 11 + 1 \cdot 17 -1 \cdot 11        \\
+     & 1 = 2 \cdot 17 - 3 \cdot 11                                      \\
+    \\
+     & \overline{a} = 2                                                 \\
+    \\
+     & 2 \cdot 17x \equiv 2 \cdot 82 \pmod {11}                         \\
+     & 34x \equiv 164 \pmod {11}                                        \\
+     & \boxed{x \equiv 10 \pmod {11}}                                   \\
+\end{align*}
+
+Também é possível escrever a solução na forma de um conjunto solução, usando as definições 2 e 1 \textbf{(módulo e divisibilidade)}, respectivamente:
+\begin{align*}
+    11  & \mid x - 10                                                \\
+    11k & = x - 10                                                   \\
+    x   & = 11k + 10                                                 \\
+    \\
+    S   & = \{x \in \mathbb{Z} \mid x = 10 + 11k, k \in \mathbb{Z}\}
+\end{align*}
