@@ -15,3 +15,5 @@
 *.fdb_latexmk
 *.nav
 *.snm
+
+*.dvi

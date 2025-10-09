@@ -1,0 +1,79 @@
+\section*{TEOREMA 3 - Teorema Chinês do Resto}
+O teorema chinês do resto é um teorema que pode ser usado para resolver sistemas de congruências lineares do tipo:
+\[
+    \begin{cases}
+        x \equiv a_1 \pmod{m_1}         \\
+        x \equiv a_2 \pmod{m_2}         \\
+        \dots                           \\
+        x \equiv a_{n-1} \pmod{m_{n-1}} \\
+        x \equiv a_n \pmod{m_n}
+    \end{cases}
+\]
+\textbf{Obs:} A solução só existe se $mdc(m_i, m_j) = 1$ para todo $i \neq j$.
+
+\subsection*{Algoritmo de solução}
+\begin{enumerate}
+    \item Calcular o módulo total ($M$):
+          \[
+              M = m_1 \cdot m_2 \cdot \dots \cdot m_n
+          \]
+    \item Calcular os $M_i$:
+          \[
+              \text{$M_i$ é o produto de todos os módulos do sistema, excluindo o módulo $m_i$.}
+          \]
+    \item Encontrar o inverso $y_i$:
+          \[
+              M_i \cdot y_i \equiv 1 \pmod{m_i}
+          \]
+    \item Calcular a solução ($x$):
+          \[
+              x \equiv a_1 M_1 y_1 + a_2 M_2 y_2 + \dots + a_n M_n y_n \pmod M
+          \]
+
+          \textbf{Obs:} Na maioria das vezes, a solução final será o resto da divisão dessa soma por $M$.
+\end{enumerate}
+
+\subsection*{Exemplos}
+\textbf{1.} Calcular a solução de:
+\[
+    \begin{cases}
+        x \equiv 2 \pmod 3 \\
+        x \equiv 3 \pmod 5 \\
+        x \equiv 2 \pmod 7 \\
+    \end{cases}
+\]
+
+\begin{enumerate}
+    \item Módulo total ($\mathbf{M}$):
+          \begin{align*}
+              M & = 3 \cdot 5 \cdot 7 \\
+              M & = 105
+          \end{align*}
+    \item Cálculo dos $\mathbf{M_i}$:
+          \begin{align*}
+              M_1 & = 5 \cdot 7 = 35 \\
+              M_2 & = 3 \cdot 7 = 21 \\
+              M_3 & = 3 \cdot 5 = 15 \\
+          \end{align*}
+    \item Inverso $\mathbf{y_i}$:
+          \begin{align*}
+              35 \cdot y_1 & \equiv 1 \pmod 3 \\
+              21 \cdot y_2 & \equiv 1 \pmod 5 \\
+              15 \cdot y_3 & \equiv 1 \pmod 7 \\
+              \\
+              y_1          & = 2              \\
+              y_2          & = 1              \\
+              y_3          & = 1
+          \end{align*}
+    \item Solução $\mathbf{x}$:
+          \begin{align*}
+              x & \equiv (2 \cdot 35 \cdot 2) + (3 \cdot 21 \cdot 1) + (2 \cdot 15 \cdot 1) \pmod{105} \\
+              x & \equiv 140 + 63 + 30 \pmod {105}                                                     \\
+              x & \equiv 233 \pmod {105}                                                               \\
+          \end{align*}
+          \[
+              \boxed{
+                  x \equiv 23 \pmod {105}
+              }
+          \]
+\end{enumerate}
