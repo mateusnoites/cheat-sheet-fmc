@@ -1,0 +1,38 @@
+\section*{TEOREMA 4 - Pequeno Teorema de Fermat}
+Este é um teorema desenvolvido pelo matemático francês Pierre de Fermat, e possibilita a simplificação de cálculos com potências grandes na aritmética modular.\\
+O teorema pode ser enunciado de duas formas:
+
+\subsubsection*{Primeira forma}
+Seja $p$ um número primo e $a \in \mathbb{Z}$. Então:
+\[
+    a^p \equiv a \pmod{p}
+\]
+Ou seja, se elevarmos $a$ à potência do primo $p$ e depois dividirmos o resultado por $p$, o resto é igual ao resto da divisão de $a$ por $p$.
+
+\subsubsection*{Segunda forma}
+Esta é a forma mais usada.\\
+Seja $p$ um número primo e $a \in \mathbb{Z}$ tal que $p \nmid a$ (ou seja, $mdc(a,p) = 1$). Então:
+\[
+    a^{p-1} \equiv 1 \pmod {p}
+\]
+Ou seja, se elevarmos $a$ à potência de $p-1$ e depois dividirmos o resultado por $p$, o resultado vai sempre ser igual a $1$.
+
+\subsection*{Exemplos}
+\textbf{1.} Calcular $2^{23} \bmod 5$ (ou seja, o resto da divisão de $2^{23}$ por $5$).
+
+\[
+    \text{Como 5 é um número primo, é possível utilizar o pequeno teorema de Fermat.}
+\]
+
+\setcounter{equation}{0}
+\begin{align}
+    2^{5-1}                 & \equiv 1 \pmod{5}                 \\
+    2^{4}                   & \equiv 1 \pmod {5}                \\
+    (2^{4})^{5}             & \equiv 1^{5} \pmod {5}            \\
+    (2^{4})^{5} \cdot 2^{3} & \equiv 1^{5} \cdot 2^{3} \pmod{5} \\
+    2^{23}                  & \equiv 8 \pmod{5}                 \\
+    2^{23}                  & \equiv 3 \pmod {5}
+\end{align}
+\[
+    \text{Portanto, o resto da divisão de $2^{23}$ por 5 é igual a 3.}
+\]
