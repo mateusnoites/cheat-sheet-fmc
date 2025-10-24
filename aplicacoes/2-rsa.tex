@@ -1,0 +1,107 @@
+\section*{APLICAÇÃO 2 - Criptografia RSA}
+O método de criptografia RSA é um criptossistema assimétrico, ou seja, o remetente e o destinatário não precisam compartilhar a mesma chave para codificar e decodificar a mensagem. O sistema se baseia na dificuldade de fatoração de números primos grandes.\\\\
+O método consiste nos seguintes processos:
+
+\subsection*{1. Geração das chaves}
+Definem-se dois números primos $\mathbf{p}$ e $\mathbf{q}$. Na prática, esses primos são muitos grandes (com mais de 200 dígitos), mas aqui eles receberão valores pequenos, para fins demonstrativos.\\\\
+Depois, multiplica-se $p$ e $q$ e atribui-se o resultado a $\mathbf{n}$:
+\[
+    n = p \cdot q
+\]
+Escolhe-se um número $k$ tal que $k$ e $\phi(n)$ são coprimos, ou seja:
+\[
+    mdc(k, \phi(n)) = 1
+\]
+Para gerar a chave de decodificação $\mathbf{d}$, calcula-se o inverso multiplicativo de $k \bmod \phi(n)$:
+\[
+    k \cdot d \equiv 1 \pmod{\phi(n)}
+\]
+Com todos esses dados, é possível prosseguir para o próximo passo.
+
+\vspace{24pt}
+\subsubsection*{Chaves públicas}
+As chaves que podem ser disponibilizadas publicamente são $(k,n)$.
+
+\subsubsection*{Chaves privadas}
+As chaves que são disponibilizadas apenas para quem vai realizar a decodificação são $(d,n)$.
+
+\subsection*{2. Codificação}
+Para realizar a codificação, é realizada a seguinte operação:
+\[
+    m^{k} \equiv c \pmod {n}
+\]
+Onde:
+\begin{itemize}
+    \item $m$: mensagem original
+    \item $c$: mensagem codificada
+\end{itemize}
+
+\subsection*{3. Decodificação}
+Para realizar a decodificação, é realizada a seguinte operação:
+\[
+    c^{d} \equiv m \pmod {n}
+\]
+Onde:
+\begin{itemize}
+    \item $m$: mensagem original
+    \item $c$: mensagem codificada
+\end{itemize}
+
+\subsection*{Exemplos}
+\textbf{1.} Codificar o número 7, com $p = 3$, $q = 11$ e $k = 3$.
+
+\begin{itemize}
+    \item Primeiro, é necessário calcular $n$.
+          \[
+              n = 3 \cdot 11 = 33
+          \]
+    \item Agora, é preciso verificar se $mdc(k, \phi(n)) = 1$.
+          \begin{align*}
+              \phi(n) = \phi(33) & = \phi(11 \cdot 3)       \\
+                                 & = (11 - 1) \cdot (3 - 1) \\
+                                 & = 10 \cdot 2             \\
+              \phi(33)           & = 20
+              \\
+              \\
+              mdc(3, 20)         & = 1
+          \end{align*}
+          Como o resultado é igual a 1, é possível realizar a criptografia.
+    \item Por último, realizamos o cálculo para encontrar o número codificado equivalente a 7
+          \begin{align*}
+              m^{k}         & \equiv c \pmod {n}  \\
+              7^{3}         & \equiv c \pmod {33} \\
+              7^{2} \cdot 7 & \equiv c \pmod {33} \\
+              49 \cdot 7    & \equiv c \pmod {33} \\
+              16 \cdot 7    & \equiv c \pmod {33} \\
+              112           & \equiv c \pmod {33}
+          \end{align*}
+          \[
+              \boxed{
+                  13 \equiv c \pmod {33}
+              }
+          \]
+\end{itemize}
+\vspace{24pt}
+\textbf{2.} Usando os dados do exemplo anterior, decodificar o número 28.
+
+\begin{align*}
+    k \cdot d & \equiv 1 \pmod {\phi(n)} \\
+    3 \cdot d & \equiv 1 \pmod {20}
+\end{align*}
+\[
+    \boxed{d = 7}
+\]
+
+\begin{align*}
+    c^{d}                              & \equiv m \pmod {n}  \\
+    28^{7}                             & \equiv m \pmod {33} \\
+    (28^{2})^{2} \cdot 28^{2} \cdot 28 & \equiv m \pmod {33} \\
+    784^{2} \cdot 784 \cdot 28         & \equiv m \pmod {33} \\
+    25^{2} \cdot 25 \cdot 28           & \equiv m \pmod {33} \\
+    625 \cdot 700                      & \equiv m \pmod {33} \\
+    31 \cdot 7                         & \equiv m \pmod {33} \\
+    217                                & \equiv m \pmod {33}
+\end{align*}
+\[
+    \boxed{19 \equiv m \pmod {33}}
+\]
