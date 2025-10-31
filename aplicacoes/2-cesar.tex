@@ -1,0 +1,103 @@
+\section{APLICAÇÃO 2 - Criptografia soma (Cifra de César)}
+A Cifra de César é uma das técnicas de criptografia mais antigas que existem. Foi criada por Júlio César para fins militares.\\\\
+Ela consiste na substituição de cada letra da mensagem original por uma letra $n$ posições adiante ou atrás no alfabeto, onde $n$ é a chave da criptografia.\\
+O deslocamento das letras é cíclico, ou seja, ao chegar na letra \textbf{Z}, a próxima letra será a letra \textbf{A}.
+
+\subsection{Codificação}
+Matematicamente, para realizar a codificação de um texto qualquer utilizando a Cifra de César, é necessário realizar a seguinte operação para cada letra da mensagem:
+
+\[
+    C \equiv M + k \pmod{26}
+\]\\
+Onde $C$ é a letra da mensagem codificada, $M$ é a letra da mensagem original e $k$ é a chave de deslocamento.\\\\
+\textbf{Importante:} Para realizar a conversão de uma letra para um número, deve-se seguir os índices da seguinte tabela:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Letra}  & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G} & \textbf{H} & \textbf{I} & \textbf{J} & \textbf{K} & \textbf{L} & \textbf{M} \\
+        \hline
+        \textbf{Índice} & 0          & 1          & 2          & 3          & 4          & 5          & 6          & 7          & 8          & 9          & 10         & 11         & 12         \\
+        \hline
+    \end{tabular}
+\end{center}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Letra}  & \textbf{N} & \textbf{O} & \textbf{P} & \textbf{Q} & \textbf{R} & \textbf{S} & \textbf{T} & \textbf{U} & \textbf{V} & \textbf{W} & \textbf{X} & \textbf{Y} & \textbf{Z} \\
+        \hline
+        \textbf{Índice} & 13         & 14         & 15         & 16         & 17         & 18         & 19         & 20         & 21         & 22         & 23         & 24         & 25         \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Decodificação}
+Para achar a chave de decodificação $d$, é necessário realizar a seguinte operação:
+\[
+    d = -(k) \bmod{26}
+\]\\
+Usando essa chave, o cálculo para realizar a decodificação é o seguinte:
+\[
+    M \equiv C + d \pmod {26}
+\]\\
+Depois de realizar a decodificação, cada número que representa uma letra é convertido de volta para uma letra, usando os índices da tabela apresentada na subseção anterior.
+
+\subsection*{Exemplos}
+\textbf{1.} Codificar a mensagem \textbf{ATTACK} usando a Cifra de César, com a chave $k = 8$.
+
+\begin{itemize}
+    \item Usando a tabela com os índices das letras, a mensagem ATTACK vira a seguinte mensagem numérica:\\
+          \textbf{0 19 19 0 2 10}
+    \item Agora é necessário realizar a operação de congruência para achar o número equivalente ao índice de cada letra:
+          \begin{align*}
+              C_1 & \equiv 0 + 8 \pmod {26}   \\
+              C_1 & \equiv 8 \pmod {26}       \\
+              \\
+              C_2 & \equiv 19 + 8 \pmod {26}  \\
+              C_2 & \equiv 27 \pmod {26}      \\
+              C_2 & \equiv 1 \pmod {26}       \\
+              \\
+              C_3 & \equiv 19 + 8 \pmod {26}  \\
+              C_3 & \equiv 27 \pmod {26}      \\
+              C_3 & \equiv 1 \pmod {26}       \\
+              \\
+              C_4 & \equiv 0 + 8 \pmod {26}   \\
+              C_4 & \equiv 8 \pmod {26}       \\
+              \\
+              C_5 & \equiv 2 + 8 \pmod {26}   \\
+              C_5 & \equiv 10 \pmod {26}      \\
+              \\
+              C_6 & \equiv 10 + 8  \pmod {26} \\
+              C_6 & \equiv 18 \pmod {26}
+          \end{align*}
+    \item Temos agora a mensagem numérica \textbf{8 1 1 8 10 18}.
+    \item Agora, é preciso novamente usar a tabela para converter os índices de volta para letras:
+    \item \textbf{Mensagem codificada:} IBBIKS
+\end{itemize}
+\vspace{24pt}
+\textbf{2.} Decodificar a mensagem \textbf{JQG}, sabendo que a chave de codificação $k$ é igual a 4.
+
+\begin{itemize}
+    \item Para calcular a chave de decodificação $d$, temos que realizar a operação:
+          \begin{align*}
+              d & = -4 \bmod 26 \\
+              d & = 22
+          \end{align*}
+    \item Passando a mensagem original para a forma numérica, temos: \textbf{9 16 6}.
+    \item Realizando as operações módulo:
+          \begin{align*}
+              M_1 & \equiv 9 + 22 \pmod {26}  \\
+              M_1 & \equiv 31 \pmod {26}      \\
+              M_1 & \equiv 5 \pmod {26}       \\
+              \\
+              M_2 & \equiv 16 + 22 \pmod {26} \\
+              M_2 & \equiv 38 \pmod {26}      \\
+              M_2 & \equiv 12 \pmod {26}      \\
+              \\
+              M_3 & \equiv 6 + 22 \pmod {26}  \\
+              M_3 & \equiv 28 \pmod{26}       \\
+              M_3 & \equiv 2
+          \end{align*}
+    \item Agora, com a mensagem numérica \textbf{5 12 2}, podemos convertê-la para uma mensagem de texto usando a tabela.
+    \item \textbf{Mensagem decodificada:} FMC
+\end{itemize}

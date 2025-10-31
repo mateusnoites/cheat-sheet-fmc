@@ -1,9 +1,9 @@
-\section*{TEOREMA 5 - Teorema de Euler}
+\section{TEOREMA 5 - Teorema de Euler}
 O teorema de Euler, também conhecido como teorema de Fermat-Euler, é uma generalização do Pequeno Teorema de Fermat \textbf{(teorema 4)}. Seu enunciado é o seguinte:
 
 \begin{gather*}
     \text{Sejam $a$ e $n$ dois inteiros positivos, onde $n>1$. Se $mdc(a,n) = 1$, então:}\\
-    a^{\phi(n)} \equiv 1 \pmod {n}\text{.}
+    a^{\varphi(n)} \equiv 1 \pmod {n}\text{.}
 \end{gather*}
 
 \vspace{12pt}
@@ -12,13 +12,13 @@ O teorema de Euler, também conhecido como teorema de Fermat-Euler, é uma gener
 \textbf{1.} Calcular $7^{100} \bmod 10$.
 
 \begin{itemize}
-    \item Como $mdc(7,10) = 1$, a condição é satisfeita, portanto, $7^{\phi(10)} \equiv 1 \pmod {10}$.
-    \item Agora precisamos calcular $\phi(10)$.
+    \item Como $mdc(7,10) = 1$, a condição é satisfeita, portanto, $7^{\varphi(10)} \equiv 1 \pmod {10}$.
+    \item Agora precisamos calcular $\varphi(10)$.
           \begin{align*}
-              \phi(10) & = \phi (2 \cdot 5)  \\
-                       & = (2-1) \cdot (5-1) \\
-                       & = 1 \cdot 4         \\
-              \phi(10) & = 4
+              \varphi(10) & = \varphi (2 \cdot 5) \\
+                          & = (2-1) \cdot (5-1)   \\
+                          & = 1 \cdot 4           \\
+              \varphi(10) & = 4
           \end{align*}
     \item Portanto, temos que $7^{4} \equiv 1 \pmod {10}$. Agora, podemos simplificar a potência para calcular $7^{100}$:
           \begin{align*}

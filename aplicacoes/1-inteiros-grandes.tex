@@ -1,7 +1,7 @@
-\section*{APLICAÇÃO 1 - Números Inteiros Grandes}
+\section{APLICAÇÃO 1 - Números Inteiros Grandes}
 Na área da computação, muitas vezes é necessário computar números inteiros grandes que, a princípio, não podem ser computados por um processador comum de computador.\\
 
-\subsection*{Codificação}
+\subsection{Codificação}
 Sejam $m_1, m_2, \dots, m_n$ inteiros maiores que 1 e primos entre si, com $m$ sendo o produto entre eles e  $a \in \mathbb{Z}$ tal que $0 \leq a < m$. É possível representar todos os números $a$ como a $n$-upla:
 \[
     a = (a \bmod m_1, a \bmod m_2, \dots, a \bmod m_n).
@@ -17,7 +17,7 @@ Por exemplo, se definirmos $m_1 = 3$, $m_2 = 5$, teremos as seguintes representa
      & 4 = (1, 4) & \qquad & 9 = (0, 4) & \qquad & 14 = (2, 4) \\
 \end{align*}
 
-\subsection*{Decodificação}
+\subsection{Decodificação}
 Dada uma $n$-upla e seus $m_i$, é possível chegar facilmente ao valor representado usando o \textbf{teorema chinês do resto} (teorema 3).\\
 
 Como exemplo, podemos tentar descobrir o valor representado por uma dupla aleatória do exemplo de \textbf{codificação}. Vamos usar a dupla $\mathbf{(2,1)}$ e $m_1 = 3, m_2 = 5$:
@@ -47,7 +47,7 @@ Como exemplo, podemos tentar descobrir o valor representado por uma dupla aleat�
 \]\\
 \textbf{Obs:} Nesse caso, podemos considerar como verdadeira apenas a primeira equivalência, portanto $x = 11$.
 
-\subsection*{Operações aritméticas}
+\subsection{Operações aritméticas}
 Para realizar operações aritméticas com as $n$-uplas, basta realizar tal operação entre o $i$-ésimo termo da primeira $n$-upla com o seu respectivo na segunda $n$-upla, e com o resultado realizar a operação módulo com o $m_i$ correspondente.
 
 \subsubsection*{Restrições}

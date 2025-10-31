@@ -1,0 +1,36 @@
+\section{APLICAÇÃO 4 - Criptografia expoente}
+A criptografia expoente segue a mesma lógica das duas últimas, mas ao invés de somar ou multiplicar a chave, é preciso tratar ela como o expoente da mensagem original.
+
+\subsection{Codificação}
+A fórmula para chegar na mensagem codificada é a seguinte:\\
+\[
+    C \equiv M^{k} \pmod {n}
+\]\\
+Onde $C$ é a mensagem codificada, $M$ é a mensagem original, $k$ é a chave e $n$ é o módulo.\\\\
+\textbf{Obs:} Para que a decodificação funcione, é necessário que $k$ e $\varphi(n)$ sejam coprimos, isto é, $mdc(k,\varphi(n)) = 1$.
+
+\subsection{Decodificação}
+Para realizar a decodificação, assim como na Cifra de César, é preciso achar a chave de decodificação $d$, que é o inverso multiplicativo de $k \bmod \varphi(n)$:
+\[
+    k \cdot d \equiv 1 \pmod {\varphi(n)}
+\]
+Depois de achar a chave de decodificação, o procedimento é parecido com a codificação:
+\[
+    M \equiv C^{d} \pmod {n}
+\]
+
+\subsection*{Exemplos}
+\textbf{1.} Codificar 12, com $k=3$ e $n=23$.
+
+\begin{align*}
+    C & \equiv 12^{3} \pmod {23}          \\
+    C & \equiv 12 \cdot 12^{2} \pmod {23} \\
+    C & \equiv 12 \cdot 144 \pmod {23}    \\
+    C & \equiv 12 \cdot 6 \pmod {23}      \\
+    C & \equiv 72 \pmod {23}
+\end{align*}
+\[
+    \boxed{C \equiv 3 \pmod {23}}
+\]
+
+\vspace{24pt}

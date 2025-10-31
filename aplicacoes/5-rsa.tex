@@ -1,31 +1,31 @@
-\section*{APLICAÇÃO 2 - Criptografia RSA}
+\section{APLICAÇÃO 5 - Criptografia RSA}
 O método de criptografia RSA é um criptossistema \textbf{assimétrico}, ou seja, o remetente e o destinatário não precisam compartilhar a mesma chave para codificar e decodificar a mensagem. O sistema se baseia na dificuldade de fatoração de números primos grandes.\\\\
 O método consiste nos seguintes processos:
 
-\subsection*{1. Geração das chaves}
+\subsection{Geração das chaves}
 Definem-se dois números primos $\mathbf{p}$ e $\mathbf{q}$. Na prática, esses primos são muitos grandes (com mais de 200 dígitos), mas aqui eles receberão valores pequenos, para fins demonstrativos.\\\\
 Depois, multiplica-se $p$ e $q$ e atribui-se o resultado a $\mathbf{n}$:
 \[
     n = p \cdot q
 \]
-Escolhe-se um número $k$ tal que $k$ e $\phi(n)$ são coprimos, ou seja:
+Escolhe-se um número $k$ tal que $k$ e $\varphi(n)$ são coprimos, ou seja:
 \[
-    mdc(k, \phi(n)) = 1
+    mdc(k, \varphi(n)) = 1
 \]
-Para gerar a chave de decodificação $\mathbf{d}$, calcula-se o inverso multiplicativo de $k \bmod \phi(n)$:
+Para gerar a chave de decodificação $\mathbf{d}$, calcula-se o inverso multiplicativo de $k \bmod \varphi(n)$:
 \[
-    k \cdot d \equiv 1 \pmod{\phi(n)}
+    k \cdot d \equiv 1 \pmod{\varphi(n)}
 \]
 Com todos esses dados, é possível prosseguir para o próximo passo.
 
 \vspace{24pt}
-\subsubsection*{Chaves públicas}
+\subsubsection{Chaves públicas}
 As chaves que podem ser disponibilizadas publicamente são $(k,n)$.
 
-\subsubsection*{Chaves privadas}
+\subsubsection{Chaves privadas}
 As chaves que são disponibilizadas apenas para quem vai realizar a decodificação são $(d,n)$.
 
-\subsection*{2. Codificação}
+\subsection{Codificação}
 Para realizar a codificação, é realizada a seguinte operação:
 \[
     m^{k} \equiv c \pmod {n}
@@ -36,7 +36,7 @@ Onde:
     \item $c$: mensagem codificada
 \end{itemize}
 
-\subsection*{3. Decodificação}
+\subsection{Decodificação}
 Para realizar a decodificação, é realizada a seguinte operação:
 \[
     c^{d} \equiv m \pmod {n}
@@ -55,15 +55,15 @@ Onde:
           \[
               n = 3 \cdot 11 = 33
           \]
-    \item Agora, é preciso verificar se $mdc(k, \phi(n)) = 1$.
+    \item Agora, é preciso verificar se $mdc(k, \varphi(n)) = 1$.
           \begin{align*}
-              \phi(n) = \phi(33) & = \phi(11 \cdot 3)       \\
-                                 & = (11 - 1) \cdot (3 - 1) \\
-                                 & = 10 \cdot 2             \\
-              \phi(33)           & = 20
+              \varphi(n) = \varphi(33) & = \varphi(11 \cdot 3)    \\
+                                       & = (11 - 1) \cdot (3 - 1) \\
+                                       & = 10 \cdot 2             \\
+              \varphi(33)              & = 20
               \\
               \\
-              mdc(3, 20)         & = 1
+              mdc(3, 20)               & = 1
           \end{align*}
           Como o resultado é igual a 1, é possível realizar a criptografia.
     \item Por último, realizamos o cálculo para encontrar o número codificado equivalente a 7
@@ -85,7 +85,7 @@ Onde:
 \textbf{2.} Usando os dados do exemplo anterior, decodificar o número 28.
 
 \begin{align*}
-    k \cdot d & \equiv 1 \pmod {\phi(n)} \\
+    k \cdot d & \equiv 1 \pmod {\varphi(n)} \\
     3 \cdot d & \equiv 1 \pmod {20}
 \end{align*}
 \[

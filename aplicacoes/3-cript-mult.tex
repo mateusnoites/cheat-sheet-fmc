@@ -1,0 +1,60 @@
+\section{APLICAÇÃO 3 - Criptografia produto}
+A criptografia produto segue a mesma lógica da criptografia soma / Cifra de César, mas ao invés de somar a chave, é necessário multiplicá-la pela mensagem original para chegar na mensagem codificada.
+
+\subsection{Codificação}
+A fórmula para chegar na mensagem codificada é a seguinte:\\
+\[
+    C \equiv M \cdot k \pmod {n}
+\]\\
+Onde $C$ é a mensagem codificada, $M$ é a mensagem original, $k$ é a chave e $n$ é o módulo.\\\\
+\textbf{Obs:} Para que a decodificação funcione, é necessário que $k$ e $n$ sejam coprimos, isto é, $mdc(k,n) = 1$.
+
+\subsection{Decodificação}
+Para realizar a decodificação, assim como na Cifra de César, é preciso achar a chave de decodificação $d$, que é o inverso multiplicativo de $k \bmod n$:
+\[
+    k \cdot d \equiv 1 \pmod {n}
+\]
+Depois de achar a chave de decodificação, o procedimento é parecido com a codificação:
+\[
+    M \equiv C \cdot d \pmod {n}
+\]
+
+\subsection*{Exemplos}
+\textbf{1.} Codificar a mensagem 7, com $k = 11$ e $n = 28$.
+
+\begin{align*}
+    C & \equiv 7 \cdot 11 \pmod {28} \\
+    C & \equiv 77 \pmod {28}
+\end{align*}
+\[
+    \boxed{C \equiv 21 \pmod {28}}
+\]\\\\
+\vspace{24pt}
+\textbf{2.} Decodificar a mensagem 12 com $k = 11$ e $n = 28$.
+\begin{itemize}
+    \item Precisamos calcular $d$:\\
+          \[
+              11 \cdot d \equiv 1 \pmod {28}
+          \]
+          \begin{align*}
+              28 & = 11 \cdot 2 + 6                                               \\
+              11 & = 6 \cdot 1 + 5                                                \\
+              6  & = 5 \cdot 1 + 1                                                \\
+              \\
+              1  & = 6 - 1 \cdot 5                                                \\
+              1  & = 6 - 1 \cdot (11 - 1 \cdot 6)                                 \\
+              1  & = (28 - 2 \cdot 11) - 1 \cdot (11 - 1 \cdot (28 - 2 \cdot 11)) \\
+              1  & = 28 - 2 \cdot 11 - 1 \cdot 11 + 1 \cdot 28 -2 \cdot 11        \\
+              1  & = 2 \cdot 28 - 5 \cdot 11
+          \end{align*}
+          \[
+              -5 \bmod 28  = 23
+          \]
+          Portanto, $d = 23$.
+    \item Agora, basta realizar o cálculo de decodificação:
+          \begin{align*}
+              M & \equiv 12 \cdot 23 \pmod {28} \\
+              M & \equiv 276 \pmod {28}         \\
+              M & \equiv 24
+          \end{align*}
+\end{itemize}

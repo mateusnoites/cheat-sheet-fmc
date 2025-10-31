@@ -1,13 +1,13 @@
-\section*{DEFINIÇÃO 7 - Função de Euler}
+\section{DEFINIÇÃO 7 - Função de Euler}
 A função de Euler, função totiente ou função phi é fundamental para os próximos tópicos, especialmente o de criptografia de chave pública ou assimétrica.
 \begin{gather*}
     \text{Notação:}\\
-    \phi(n)
+    \varphi(n)
 \end{gather*}
 Ela calcula a quantidade de números naturais não nulos $m$ menores ou iguais a $n$ tais que $m$ e $n$ são relativamente primos, ou seja, $mdc(m,n) = 1$
 
 \subsection*{Exemplos}
-\textbf{1.} Calcular $\phi(6)$:
+\textbf{1.} Calcular $\varphi(6)$:
 
 \begin{itemize}
     \item Os números $m \leq 6$ são $\{1,2,3,4,5,6\}$.
@@ -19,43 +19,43 @@ Ela calcula a quantidade de números naturais não nulos $m$ menores ou iguais a
               \item $mdc(5,6) = 1$ \textbf{(coprimo)}
               \item $mdc(6,6) = 6$ (não coprimo)
           \end{itemize}
-    \item Os coprimos são $\mathbf{1}$ e $\mathbf{5}$, então $\phi(6) = 2$.
+    \item Os coprimos são $\mathbf{1}$ e $\mathbf{5}$, então $\varphi(6) = 2$.
 \end{itemize}
 \vspace{12pt}
-\textbf{2.} Calcular $\phi(7)$:
+\textbf{2.} Calcular $\varphi(7)$:
 
 \begin{itemize}
-    \item Como 7 é um número primo, todos os números naturais não nulos até $7-1$ são coprimos com ele, portanto $\phi(7)=6$.
+    \item Como 7 é um número primo, todos os números naturais não nulos até $7-1$ são coprimos com ele, portanto $\varphi(7)=6$.
 \end{itemize}
 
-\subsection*{Principais fórmulas}
-Existem algumas fórmulas e propriedades que ajudam a calcular $\phi(n)$. Sejam $p,q,m,n \in \mathbb{Z}$ com $p \neq q$, $p$ e $q$ números primos e $m$ e $n$ coprimos.
+\subsection{Principais fórmulas}
+Existem algumas fórmulas e propriedades que ajudam a calcular $\varphi(n)$. Sejam $p,q,m,n \in \mathbb{Z}$ com $p \neq q$, $p$ e $q$ números primos e $m$ e $n$ coprimos.
 
 \setcounter{equation}{0}
 \begin{align}
-     & \phi(p) = p-1                           \\
-     & \phi(p \cdot q) = (p-1)\cdot(q-1)       \\
-     & \phi(p^{2}) = p \cdot (p-1)             \\
-     & \phi(m \cdot n) = \phi(m) \cdot \phi(n)
+     & \varphi(p) = p-1                                 \\
+     & \varphi(p \cdot q) = (p-1)\cdot(q-1)             \\
+     & \varphi(p^{2}) = p \cdot (p-1)                   \\
+     & \varphi(m \cdot n) = \varphi(m) \cdot \varphi(n)
 \end{align}
 
 \subsection*{Exemplos}
-\textbf{3.} Calcular $\phi(19)$:
+\textbf{3.} Calcular $\varphi(19)$:
 
 \begin{itemize}
-    \item Pela fórmula \textbf{(1)}, $\phi(19) = 19 - 1 = 18$.
+    \item Pela fórmula \textbf{(1)}, $\varphi(19) = 19 - 1 = 18$.
 \end{itemize}
 \vspace{12pt}
-\textbf{4.} Calcular $\phi(35)$:
+\textbf{4.} Calcular $\varphi(35)$:
 
 \begin{itemize}
     \item Decompondo 35 em fatores primos, obtemos $35 = 7 \cdot 5$.
-    \item Pela fórmula \textbf{(2)}, $\phi(35) = \phi(7 \cdot 5) = (7 - 1) \cdot (5 - 1) = 6 \cdot 4 = 24$.
+    \item Pela fórmula \textbf{(2)}, $\varphi(35) = \varphi(7 \cdot 5) = (7 - 1) \cdot (5 - 1) = 6 \cdot 4 = 24$.
 \end{itemize}
 \vspace{12pt}
-\textbf{5.} Calcular $\phi(49)$:
+\textbf{5.} Calcular $\varphi(49)$:
 
 \begin{itemize}
     \item Sabe-se que $49 = 7^{2}$.
-    \item Pela fórmula \textbf{(3)}, $\phi(49) = \phi(7^{2}) = 7 \cdot (7 - 1) = 7 \cdot 6 = 42$.
+    \item Pela fórmula \textbf{(3)}, $\varphi(49) = \varphi(7^{2}) = 7 \cdot (7 - 1) = 7 \cdot 6 = 42$.
 \end{itemize}
